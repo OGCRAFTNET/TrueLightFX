@@ -32,12 +32,12 @@ vec3 ComplexFresnel(float fresnel, float f0) {
     vec3 n2 = n * n;
     float f2 = f * f;
 
-    vec3 rs_num = n2 + k2 - 2 * n * f + f2;
-    vec3 rs_den = n2 + k2 + 2 * n * f + f2;
+    vec3 rs_num = n2 + k2 - 2 * n * f + vec3(f2);
+    vec3 rs_den = n2 + k2 + 2 * n * f + vec3(f2);
     vec3 rs = rs_num / rs_den;
      
-    vec3 rp_num = (n2 + k2) * f2 - 2 * n * f + 1;
-    vec3 rp_den = (n2 + k2) * f2 + 2 * n * f + 1;
+    vec3 rp_num = (n2 + k2) * f2 - 2 * n * f + vec3(1.0);
+    vec3 rp_den = (n2 + k2) * f2 + 2 * n * f + vec3(1.0);
     vec3 rp = rp_num / rp_den;
     
     vec3 fresnel3 = clamp(0.5 * (rs + rp), vec3(0.0), vec3(1.0));
