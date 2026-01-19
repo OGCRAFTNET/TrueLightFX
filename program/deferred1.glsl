@@ -382,7 +382,7 @@ void main() {
 		viewPos /= viewPos.w;
 
 		#ifdef AO
-		color.rgb *= GetDHAmbientOcclusion(dhZ);
+		color.rgb *= vec3(GetDHAmbientOcclusion(dhZ));
 		#endif
 		
 		Fog(color.rgb, viewPos.xyz);
