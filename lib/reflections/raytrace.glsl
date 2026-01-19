@@ -50,7 +50,7 @@ vec4 Raytrace(sampler2D depthtex, vec3 viewPos, vec3 normal, float dither, out f
     int sr = 0;
 
     for(int i = 0; i < 30; i++) {
-        pos = nvec3(gbufferProjection * nvec4(viewPos)) * 0.5 + 0.5;
+        pos = nvec3(gbufferProjection * nvec4(viewPos)) * 0.5 + vec3(0.5);
 		if (pos.x < -0.05 || pos.x > 1.05 || pos.y < -0.05 || pos.y > 1.05) break;
 
 		vec3 rfragpos = vec3(pos.xy, texture2D(depthtex,pos.xy).r);
@@ -91,7 +91,7 @@ vec4 Raytrace(sampler2D depthtex, vec3 viewPos, vec3 normal, float dither, out f
 vec4 BasicReflect(vec3 viewPos, vec3 normal, out float border) {
 	vec3 reflectedViewPos = reflect(viewPos, normal) + normal * dot(viewPos, normal) * 0.5;
 
-	vec3 pos = nvec3(gbufferProjection * nvec4(reflectedViewPos)) * 0.5 + 0.5;
+	vec3 pos = nvec3(gbufferProjection * nvec4(reflectedViewPos)) * 0.5 + vec3(0.5);
 
 	border = cdist(pos.st);
 

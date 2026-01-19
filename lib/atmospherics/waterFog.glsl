@@ -14,7 +14,7 @@ vec4 GetWaterFog(vec3 viewPos) {
     waterFogColor *= WATER_F * WATER_F * (1.0 - max(blindFactor, darknessFactor));
 
     #ifdef OVERWORLD
-    vec3 waterFogTint = lightCol * eBS * shadowFade * 0.9 + 0.1;
+    vec3 waterFogTint = lightCol * eBS * shadowFade * 0.9 + vec3(0.1);
     #endif
     #ifdef NETHER
     vec3 waterFogTint = netherCol.rgb;
