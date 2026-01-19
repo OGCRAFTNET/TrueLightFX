@@ -289,7 +289,7 @@ void main() {
 	#endif
 	
 	#ifdef DISTANT_HORIZONS
-	vec3 dhAtmosphere = GetDHAmbientOcclusion(dhZ);
+	float dhAtmosphere = GetDHAmbientOcclusion(dhZ);
 	#endif
 
 	#ifdef OUTLINE_ENABLED
@@ -382,7 +382,7 @@ void main() {
 		viewPos /= viewPos.w;
 
 		#ifdef AO
-		color.rgb *= GetDHAmbientOcclusion(dhZ);
+		color.rgb *= vec3(GetDHAmbientOcclusion(dhZ));
 		#endif
 		
 		Fog(color.rgb, viewPos.xyz);
