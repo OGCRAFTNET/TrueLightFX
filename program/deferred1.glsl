@@ -289,7 +289,7 @@ void main() {
 	#endif
 	
 	#ifdef DISTANT_HORIZONS
-	vec3 dhAtmosphere = GetDHAmbientOcclusion(dhZ);
+	float dhAtmosphere = GetDHAmbientOcclusion(dhZ);
 	#endif
 
 	#ifdef OUTLINE_ENABLED
