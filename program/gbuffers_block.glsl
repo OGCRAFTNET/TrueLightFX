@@ -457,9 +457,7 @@ void main() {
 	vTexCoord.xy    = sign(texMinMidCoord) * 0.5 + 0.5;
 	#endif
     
-	color = gl_Color;
-
-	if(color.a < 0.1) color.a = 1.0;
+	color = vec4(gl_Color.rgb, 1.0);
 
 	const vec2 sunRotationData = vec2(cos(sunPathRotation * 0.01745329251994), -sin(sunPathRotation * 0.01745329251994));
 	float ang = fract(timeAngle - 0.25);
