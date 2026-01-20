@@ -202,6 +202,10 @@ void main() {
 		
 		GetMaterials(smoothness, metalness, f0, emission, subsurface, porosity, ao, normalMap,
 					 newCoord, dcdx, dcdy);
+
+		if (metalness < 0.1) {
+			smoothness = min(smoothness, 0.25);
+		}
 					 
 		#ifdef NORMAL_SKIP
 		normalMap = vec3(0.0, 0.0, 1.0);
