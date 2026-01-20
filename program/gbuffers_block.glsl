@@ -154,11 +154,7 @@ void main() {
 	vec3 fresnel3 = vec3(0.0);
 	#endif
 
-	if(blockEntityId == 10401) {
-		albedo.a = 0.0;
-	} else {
-		albedo.a = 1.0;
-	}
+	albedo.a = 1.0;
 
 	if (albedo.a > 0.001) {
 		vec2 lightmap = clamp(lmCoord, vec2(0.0), vec2(1.0));
