@@ -28,7 +28,8 @@ float errMult = 1.6;
 #endif
 #endif
 
-vec4 Raytrace(sampler2D depthtex, vec3 viewPos, vec3 normal, float dither, out float border, 
+vec4 Raytrace(sampler2D depthtex0, sampler2D depthtex1, vec3 viewPos, vec3 normal, float dither,
+			  out float border, 
 			  int maxf, float stp, float ref, float inc) {
 	vec3 pos = vec3(0.0);
 	float dist = 0.0;
@@ -53,7 +54,9 @@ vec4 Raytrace(sampler2D depthtex, vec3 viewPos, vec3 normal, float dither, out f
         pos = nvec3(gbufferProjection * nvec4(viewPos)) * 0.5 + vec3(0.5);
 		if (pos.x < -0.05 || pos.x > 1.05 || pos.y < -0.05 || pos.y > 1.05) break;
 
-		vec3 rfragpos = vec3(pos.xy, texture2D(depthtex,pos.xy).r);
+		float depth0 = texture2D(depthtex0, pos.xy).r;
+		float depth1 = texture2D(depthtex1, pos.xy).r;
+		vec3 rfragpos = vec3(pos.xy, min(depth0, depth1));
         rfragpos = nvec3(gbufferProjectionInverse * nvec4(rfragpos * 2.0 - 1.0));
 		dist = abs(dot(normalize(start - rfragpos), normal));
 
