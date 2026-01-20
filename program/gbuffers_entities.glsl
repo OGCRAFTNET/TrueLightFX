@@ -204,7 +204,7 @@ void main() {
 					 newCoord, dcdx, dcdy);
 
 		if (metalness < 0.1) {
-			smoothness = min(smoothness, 0.12);
+			smoothness = min(smoothness, 0.25);
 		}
 					 
 		#ifdef NORMAL_SKIP
