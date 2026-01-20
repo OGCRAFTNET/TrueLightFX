@@ -268,7 +268,9 @@ vec3 GetEndSkyColor(vec3 viewPos) {
 //Program//
 void main() {
     vec4 color = texture2D(colortex0, texCoord);
-	float z = texture2D(depthtex0, texCoord).r;
+	float z0 = texture2D(depthtex0, texCoord).r;
+	float z1 = texture2D(depthtex1, texCoord).r;
+	float z = min(z0, z1);
 	
 	#ifdef DISTANT_HORIZONS
 	float dhZ = texture2D(dhDepthTex0, texCoord).r;
