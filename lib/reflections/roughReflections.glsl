@@ -14,7 +14,7 @@ vec4 RoughReflection(vec3 viewPos, vec3 normal, float dither, float smoothness) 
 	float inc = 1.8;
 	#endif
 
-    vec4 pos = Raytrace(depthtex0, viewPos, normal, dither, border, 6, 0.5, 0.1, inc);
+    vec4 pos = Raytrace(depthtex1, viewPos, normal, dither, border, 6, 0.5, 0.1, inc);
 	border = clamp(13.333 * (1.0 - border) * (0.9 * smoothness + 0.1), 0.0, 1.0);
 
 	float fovScale = gbufferProjection[1][1] / 1.37;
