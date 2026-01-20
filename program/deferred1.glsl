@@ -270,7 +270,7 @@ void main() {
     vec4 color = texture2D(colortex0, texCoord);
 	float z0 = texture2D(depthtex0, texCoord).r;
 	float z1 = texture2D(depthtex1, texCoord).r;
-	float z = z0 >= 1.0 ? z1 : z0;
+	float z = min(z0, z1);
 	
 	#ifdef DISTANT_HORIZONS
 	float dhZ = texture2D(dhDepthTex0, texCoord).r;
