@@ -137,9 +137,6 @@ void main() {
     vec4 albedo = texture2D(texture, texCoord) * color;
 	// Rendi completamente opache le block entities (es. chest, shulker, barrel)
 	float lightningBolt = float(entityId == 10101);
-	if (lightningBolt < 0.5) {
-		albedo.a = 1.0;
-	}
 	vec3 newNormal = normal;
 	float smoothness = 0.0;
 
@@ -159,6 +156,9 @@ void main() {
 	float skyOcclusion = 0.0;
 	vec3 fresnel3 = vec3(0.0);
 	#endif
+
+	albedo.a = 1.0;
+	albedo.rgb *= 1.0 / max(color.a, 0.001);
 
 	#ifdef ENTITY_FLASH
 	albedo.rgb = mix(albedo.rgb, entityColor.rgb, entityColor.a);
