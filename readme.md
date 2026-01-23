@@ -1,1 +1,1 @@
-This Shader is based on BSL V8 and Prismarine Shader
+This Shader is based on Prismarine Shader
