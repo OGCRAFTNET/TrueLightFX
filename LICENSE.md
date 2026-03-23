@@ -1,7 +1,7 @@
 MIT License
 
 Copyright (c) 2021 Septonious
-Copyright (c) 2026 TrueLightFX
+Copyright (c) 2026 Simon L. (OGCRAFTNET STUDIOS)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
